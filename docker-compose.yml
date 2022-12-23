@@ -1,0 +1,19 @@
+version: "3.9"  # optional since v1.27.0
+services:
+  frontend:
+    build: ./Frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+  backend:
+    build: ./Backend
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=development
+      - MONGO_DB_CONNECTION_STRING=mongodb+srv://vitus1:98989898@cluster0.k0rea5h.mongodb.net/test
+      - MONGO_DB_NAME=Cluster0
+      - REDIS_URI=redis://default:UUD1SLiBaFVCF5Ssbu0B8cY94Za7y93f@redis-19408.c302.asia-northeast1-1.gce.cloud.redislabs.com:19408
+      
